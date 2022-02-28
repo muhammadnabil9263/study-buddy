@@ -5,11 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <a href='/home'>
+    <a href='/'>
         <h1>
             Logo
         </h1>
     </a>
+      <div>
+        <form method="GET" action="{% url 'home' %}">
+            <input type="text" name="q" placeholder="Room Search .."/>
+        </form>
     <hr>
 </body>
 </html>
