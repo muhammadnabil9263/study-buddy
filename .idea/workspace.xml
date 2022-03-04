@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24e30415-0fbe-46a4-821a-99a8458c2018" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/studybud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/studybud.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/templates/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/urls.py" afterDir="false" />
@@ -38,7 +34,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -54,13 +50,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="6" key="SettingsEditor" timestamp="1645666848228">
+    <state x="184" y="6" key="SettingsEditor" timestamp="1646170080492">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1645666848228" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1646011836965">
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1646170080492" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1646429307061">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1646011836965" />
+    <state x="355" y="176" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1646348847627" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1646429307061" />
   </component>
 </project>
