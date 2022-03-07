@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from base.models import Room, Topic,Message
+from base.models import Room, Topic, Message
 from base.forms import RoomForm
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
@@ -46,7 +46,7 @@ def register_user(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
-            login(request,new_user)
+            login(request, new_user)
             return redirect('home')
         else:
             messages.error(request, "password didn't match ")
@@ -74,7 +74,8 @@ def home(request):
                                 )
     count = rooms.count()
     topics = Topic.objects.all()
-    context = {'rooms': rooms, 'topics': topics, "count": count}
+    room_messages = Message.objects.all()
+    context = {'rooms': rooms, 'topics': topics, "count": count , "room_messages": room_messages}
     return render(request=request,
                   template_name="base/home.html",
                   context=context)
@@ -83,14 +84,16 @@ def home(request):
 def room(request, id):
     single_room = Room.objects.get(id=id)
     room_messages = single_room.message_set.all()
+    participants = single_room.participants.all()
     if request.method == 'POST':
         Message.objects.create(
             user=request.user,
             room=single_room,
             body=request.POST.get("body")
         )
+        single_room.participants.add(request.user)
         return redirect('room', id)
-    context = {"room": single_room, "room_messages": room_messages}
+    context = {"room": single_room, "room_messages": room_messages,"participants": participants}
     return render(request, 'base/room.html', context)
 
 
@@ -134,3 +137,12 @@ def delete_room(request, id):
         room.delete()
         return redirect('home')
     return render(request, 'base/delete_room.html')
+
+
+@login_required(login_url='login')
+def delete_message(request, id):
+    message = Message.objects.get(id=id)
+    if request.method == 'POST':
+        message.delete()
+        return redirect("room",message.room.id)
+    return render(request, 'base/delete_message.html', {"message": message})
