@@ -7,6 +7,8 @@ from base.models import Room, Topic
 from base.forms import RoomForm
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 
 #
 # rooms = [{"id": 1, "name": 'python1 '},
@@ -21,6 +23,8 @@ def login_user(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
+        print(user)
+        print("----------------------------------------------------------------------------------")
         if user is not None:
             login(request, user)
             return redirect("home")
@@ -37,21 +41,23 @@ def logout_user(request):
 
 
 def register_user(request):
-    register_form= UserCreationForm()
+    register_form = UserCreationForm()
     context = {"register_form": register_form}
-    if request.method == 'POST':
-        new_user = UserCreationForm(request.POST)
-        if new_user.is_valid():
-            new_user.save()
-            return redirect('home')
-        else:
-            messages.error(request, 'there is an error')
 
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        if password1 == password2:
+            User.objects.create_user(username=username, password=password1)
+            user = authenticate(username=username, password=password1)
+            login(request, user)
+            return redirect("home")
     return render(request, "base/login_register.html", context)
 
 
 def home(request):
-    q = request.GET.get('q') if request.GET.get('q') != None else ""
+    q = request.GET.get('q') if request.GET.get('q') is not None else ""
     rooms = Room.objects.filter(Q(topic__name__contains=q) |
                                 Q(description__contains=q) |
                                 Q(name__contains=q)

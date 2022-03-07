@@ -15,11 +15,11 @@
 {% else %}
 <div>
     <form method="POST" action="">
-    {% csrf_token %}
+        {% csrf_token %}
         {{ register_form.as_p}}
     <input type="submit" value="Register"/>
 </form>
-{% endif%}
+{% endif %}
 </div>
 
 {% if messages %}
