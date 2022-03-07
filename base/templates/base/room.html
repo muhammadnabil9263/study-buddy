@@ -1,4 +1,23 @@
 {% extends 'main.html' %}
 {% block content%}
        <h5>{{room.id}} -- {{room.name}} </h5>
+       <p>{{room.description}}</p>
+       <div class="comment-wrapper">
+              <h3>Conversation</h3>
+              <hr>
+
+              {% for message in room_messages %}
+              <div>
+                     <small> @{{message.user}} {{message.created | timesince}} </small>
+                     <p>{{message.body}}</p>
+              </div>
+              {% endfor%}
+       </div>
+       <div class="comment-form">
+            <form method="POST" action="">
+                   {% csrf_token %}
+                   <input type="text" name="body"  placeholder="write your message here .....">
+            </form>
+       </div>
+
 {% endblock %}

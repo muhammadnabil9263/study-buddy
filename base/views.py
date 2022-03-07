@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from base.models import Room, Topic
+from base.models import Room, Topic,Message
 from base.forms import RoomForm
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
@@ -24,7 +24,6 @@ def login_user(request):
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
         print(user)
-        print("----------------------------------------------------------------------------------")
         if user is not None:
             login(request, user)
             return redirect("home")
@@ -43,16 +42,27 @@ def logout_user(request):
 def register_user(request):
     register_form = UserCreationForm()
     context = {"register_form": register_form}
-
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password1 = request.POST.get('password1')
-        password2 = request.POST.get('password2')
-        if password1 == password2:
-            User.objects.create_user(username=username, password=password1)
-            user = authenticate(username=username, password=password1)
-            login(request, user)
-            return redirect("home")
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            login(request,new_user)
+            return redirect('home')
+        else:
+            messages.error(request, "password didn't match ")
+            return redirect("register")
+    # if request.method == 'POST':
+        # username = request.POST.get('username')
+        # password1 = request.POST.get('password1')
+        # password2 = request.POST.get('password2')
+        # if password1 == password2:
+        #     User.objects.create_user(username=username, password=password1)
+        #     user = authenticate(username=username, password=password1)
+        #     login(request, user)
+        #     return redirect("home")
+        # else:
+        #     messages.error(request,"password didn't match ")
+        #     return redirect("register")
     return render(request, "base/login_register.html", context)
 
 
@@ -65,12 +75,22 @@ def home(request):
     count = rooms.count()
     topics = Topic.objects.all()
     context = {'rooms': rooms, 'topics': topics, "count": count}
-    return render(request=request, template_name="base/home.html", context=context)
+    return render(request=request,
+                  template_name="base/home.html",
+                  context=context)
 
 
 def room(request, id):
     single_room = Room.objects.get(id=id)
-    context = {"room": single_room}
+    room_messages = single_room.message_set.all()
+    if request.method == 'POST':
+        Message.objects.create(
+            user=request.user,
+            room=single_room,
+            body=request.POST.get("body")
+        )
+        return redirect('room', id)
+    context = {"room": single_room, "room_messages": room_messages}
     return render(request, 'base/room.html', context)
 
 
@@ -83,7 +103,9 @@ def create_room(request):
             new_room.save()
             return redirect('home')
     context = {"room": room_form}
-    return render(request, 'base/create_room.html', context)
+    return render(request,
+                  'base/create_room.html',
+                  context)
 
 
 @login_required(login_url='login')
