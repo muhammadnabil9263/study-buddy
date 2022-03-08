@@ -52,17 +52,17 @@ def register_user(request):
             messages.error(request, "password didn't match ")
             return redirect("register")
     # if request.method == 'POST':
-        # username = request.POST.get('username')
-        # password1 = request.POST.get('password1')
-        # password2 = request.POST.get('password2')
-        # if password1 == password2:
-        #     User.objects.create_user(username=username, password=password1)
-        #     user = authenticate(username=username, password=password1)
-        #     login(request, user)
-        #     return redirect("home")
-        # else:
-        #     messages.error(request,"password didn't match ")
-        #     return redirect("register")
+    # username = request.POST.get('username')
+    # password1 = request.POST.get('password1')
+    # password2 = request.POST.get('password2')
+    # if password1 == password2:
+    #     User.objects.create_user(username=username, password=password1)
+    #     user = authenticate(username=username, password=password1)
+    #     login(request, user)
+    #     return redirect("home")
+    # else:
+    #     messages.error(request,"password didn't match ")
+    #     return redirect("register")
     return render(request, "base/login_register.html", context)
 
 
@@ -75,7 +75,7 @@ def home(request):
     count = rooms.count()
     topics = Topic.objects.all()
     room_messages = Message.objects.all()
-    context = {'rooms': rooms, 'topics': topics, "count": count , "room_messages": room_messages}
+    context = {'rooms': rooms, 'topics': topics, "count": count, "room_messages": room_messages}
     return render(request=request,
                   template_name="base/home.html",
                   context=context)
@@ -93,8 +93,17 @@ def room(request, id):
         )
         single_room.participants.add(request.user)
         return redirect('room', id)
-    context = {"room": single_room, "room_messages": room_messages,"participants": participants}
+    context = {"room": single_room, "room_messages": room_messages, "participants": participants}
     return render(request, 'base/room.html', context)
+
+
+def user_profile(request, id):
+    user = User.objects.get(id=id)
+    topics = Topic.objects.all()
+    rooms = user.room_set.all()
+    room_messages = Message.objects.all()
+    context = {"user": user, "topics": topics, "rooms": rooms, 'room_messages': room_messages}
+    return render(request, "base/user-profile.html", context)
 
 
 @login_required(login_url='login')
@@ -103,7 +112,13 @@ def create_room(request):
     if request.method == 'POST':
         new_room = RoomForm(request.POST)
         if new_room.is_valid():
-            new_room.save()
+            new_room = new_room.save(commit=False)
+            new_room.host = request.user
+            if new_room.host != None:
+                new_room.save()
+            else:
+                messages(request, "user is none")
+
             return redirect('home')
     context = {"room": room_form}
     return render(request,
@@ -135,8 +150,8 @@ def delete_room(request, id):
 
     if request.method == 'POST':
         room.delete()
-        return redirect('home')
-    return render(request, 'base/delete_room.html')
+        return redirect(request.META.get('HTTP_REFERER'))
+    return render(request, 'base/delete.html', {"obj": room})
 
 
 @login_required(login_url='login')
@@ -144,5 +159,5 @@ def delete_message(request, id):
     message = Message.objects.get(id=id)
     if request.method == 'POST':
         message.delete()
-        return redirect("room",message.room.id)
-    return render(request, 'base/delete_message.html', {"message": message})
+        return redirect(request.META.get('HTTP_REFERER'))
+    return render(request, 'base/delete.html', {"obj": message})

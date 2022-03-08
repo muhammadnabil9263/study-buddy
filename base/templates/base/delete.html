@@ -4,7 +4,7 @@
 
 <form method="POST" action="">
     {% csrf_token %}
-  <h1> Are you sure to delete this  {{ message.body }} </h1>
+  <h1> Are you sure to delete this {{obj}} </h1>
     <a href="javascript:history.back()"> Go Back </a>
   <input type="submit" value="Yes">
 </form>
