@@ -6,14 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="24e30415-0fbe-46a4-821a-99a8458c2018" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/delete_message.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/base/delete_room.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/feed_component.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/feed_component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/templates/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/topics_component.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/topics_component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/studybud/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/studybud/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
     </list>
@@ -61,13 +58,14 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\moham\Desktop\study-buddy\base\templates\base" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\moham\Desktop\study-buddy\static\js" />
       <recent name="C:\Users\moham\Desktop\study-buddy" />
     </key>
   </component>
@@ -92,7 +90,13 @@
       <workItem from="1646611417892" duration="1966000" />
       <workItem from="1646614071829" duration="16778000" />
       <workItem from="1646647502280" duration="3725000" />
-      <workItem from="1646699223592" duration="7802000" />
+      <workItem from="1646699223592" duration="8141000" />
+      <workItem from="1647005820593" duration="2005000" />
+      <workItem from="1647095026452" duration="1258000" />
+      <workItem from="1647201004010" duration="468000" />
+      <workItem from="1647278392993" duration="362000" />
+      <workItem from="1647304269295" duration="4378000" />
+      <workItem from="1647387058026" duration="8308000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,10 @@
-         <h3>Browser Topic</h3>
-         <hr>
+        <ul class="topics__list">
          {% for topic in topics %}
          <div>
-             <a href=" {% url 'home' %}?q={{topic.name}}"> >{{topic.name}}</a>
+             <li>
+             <a href=" {% url 'home' %}?q={{topic.name}}"> {{topic.name}} <span>
+                 {{topic.room_set.all.count}}
+                  </span></a>
+             </li>
          </div>
          {% endfor %}

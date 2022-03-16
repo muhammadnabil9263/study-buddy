@@ -67,6 +67,7 @@ def register_user(request):
 
 
 def home(request):
+
     q = request.GET.get('q') if request.GET.get('q') is not None else ""
     rooms = Room.objects.filter(Q(topic__name__contains=q) |
                                 Q(description__contains=q) |
