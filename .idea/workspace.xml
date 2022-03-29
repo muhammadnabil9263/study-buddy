@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24e30415-0fbe-46a4-821a-99a8458c2018" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/base/templates/base/room_old.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/studybud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/studybud.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/activities_component.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/activities_component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/create_room.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/create_room-old.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/templates/base/feed_component.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/feed_component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/templates/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/templates/base/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/room.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/templates/base/topics_component.html" beforeDir="false" afterPath="$PROJECT_DIR$/base/templates/base/topics_component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +59,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/base/templates/base" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -73,6 +80,31 @@
     <configuration type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://127.0.0.1:8000/">
       <method v="2" />
     </configuration>
+    <configuration name="python" type="PythonConfigurationType" factoryName="Python">
+      <module name="studybud" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\mohamed\Desktop\study-buddy\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.python" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -97,6 +129,17 @@
       <workItem from="1647278392993" duration="362000" />
       <workItem from="1647304269295" duration="4378000" />
       <workItem from="1647387058026" duration="8308000" />
+      <workItem from="1647395464537" duration="377000" />
+      <workItem from="1647453956515" duration="64000" />
+      <workItem from="1647644225702" duration="13404000" />
+      <workItem from="1647706269315" duration="3407000" />
+      <workItem from="1648067561083" duration="2917000" />
+      <workItem from="1648074349759" duration="6359000" />
+      <workItem from="1648367612273" duration="397000" />
+      <workItem from="1648368058793" duration="99000" />
+      <workItem from="1648553000477" duration="784000" />
+      <workItem from="1648553816469" duration="410000" />
+      <workItem from="1648554469924" duration="498000" />
     </task>
     <servers />
   </component>

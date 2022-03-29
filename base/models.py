@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.views import get_user_model
 
-
+from django.conf import settings
 # Create your models here.
 
 
@@ -14,7 +15,7 @@ class Topic(models.Model):
 
 class Room(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
-    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, )
     name = models.CharField(max_length=200)
     description = models.TextField()
     participants = models.ManyToManyField(User, related_name="participants", blank=True)

@@ -12,13 +12,13 @@
               </div>
             </div>
             <div class="roomListRoom__content">
-              <a href="room.html">{{room.name}}</a>
+              <a href="{%url 'room' room.id %}">{{room.name}}</a>
               <p>
                {{room.description}}
               </p>
             </div>
             <div class="roomListRoom__meta">
-              <a href="room.html" class="roomListRoom__joined">
+              <small href="room.html" class="roomListRoom__joined">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                   <title>user-group</title>
                   <path
@@ -35,21 +35,8 @@
                   ></path>
                 </svg>
                 {{ room.participants.count}} Joined
-              </a>
+              </small>
               <p class="roomListRoom__topic">{{room.topic}}</p>
             </div>
           </div>
   {% endfor %}
-  {% for room in rooms %}
-            {% if request.user == room.host %}
-                <a href=" {% url 'update-room' room.id %} "> Edit </a>
-                <a href=" {% url 'delete-room' room.id %} "> Delete </a>
-            {% endif %}
-
-            <span><a href=" {% url 'user-profile' room.host.id %} "> @ {{room.host}} </a>></span>
-            <a href="{% url 'room' room.id %}" >
-                <h4>{{room.id}} -- {{room.name}} </h4>
-            </a>
-            <span>@{{room.topic}} </span>
-            <hr>
-        {% endfor %}

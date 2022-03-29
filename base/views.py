@@ -82,6 +82,7 @@ def home(request):
                   context=context)
 
 
+
 def room(request, id):
     single_room = Room.objects.get(id=id)
     room_messages = single_room.message_set.all()
@@ -109,29 +110,26 @@ def user_profile(request, id):
 
 @login_required(login_url='login')
 def create_room(request):
+    page = "create"
     room_form = RoomForm()
+    print(request.POST)
     if request.method == 'POST':
         new_room = RoomForm(request.POST)
         if new_room.is_valid():
-            new_room = new_room.save(commit=False)
-            new_room.host = request.user
-            if new_room.host != None:
-                new_room.save()
-            else:
-                messages(request, "user is none")
-
+            # new_room=new_room.save(commit=False)
+            new_room.instance.host = request.user
+            new_room.save()
             return redirect('home')
-    context = {"room": room_form}
-    return render(request,
-                  'base/create_room.html',
-                  context)
+    context = {"room": room_form,"page": page }
+    return render(request,'base/create-room.html', context)
 
 
 @login_required(login_url='login')
 def update_room(request, id):
+    page = "update"
     room = Room.objects.get(id=id)
     room_form = RoomForm(instance=room)
-    context = {"room": room_form}
+    context = {"room": room_form,"page": page}
     if request.user != room.host:
         return HttpResponse("You are not allowed")
     if request.method == 'POST':
@@ -139,26 +137,36 @@ def update_room(request, id):
         if new_room.is_valid():
             new_room.save()
             return redirect('home')
-    return render(request, 'base/create_room.html', context)
+    return render(request, 'base/create-room.html', context)
 
 
 @login_required(login_url='login')
 def delete_room(request, id):
-    room = Room.objects.get(id=id)
+    try:
+        room = Room.objects.get(id=id)
+    except:
+        messages.error(request, " can't back room is deleted ")
+        return redirect("home")
 
     if request.user != room.host:
         return HttpResponse("You are not allowed")
 
     if request.method == 'POST':
         room.delete()
-        return redirect(request.META.get('HTTP_REFERER'))
+        return redirect("home")
+        # return redirect(request.META.get('HTTP_REFERER'))
+
     return render(request, 'base/delete.html', {"obj": room})
 
 
 @login_required(login_url='login')
 def delete_message(request, id):
-    message = Message.objects.get(id=id)
+    try:
+        message = Message.objects.get(id=id)
+        room_id = message.room.id
+    except:
+        return messages.error(request, " can't back room is deleted ")
     if request.method == 'POST':
         message.delete()
-        return redirect(request.META.get('HTTP_REFERER'))
+        return redirect('room',id=room_id)
     return render(request, 'base/delete.html', {"obj": message})
