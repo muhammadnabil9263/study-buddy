@@ -23,7 +23,6 @@
         <div class="layout__body">
           <form class="form" action="" method="POST">
             {% csrf_token %}
-<!--             {{room.as_p}}-->
             <div class="form__group">
                {{ room.name.errors }}
               <label for="{{ room.name.id_for_label }}">Room Name</label>

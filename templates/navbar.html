@@ -1,69 +1,95 @@
- <header class="header header--loggedIn">
-      <div class="container">
-        <a href="{% url 'home' %}" class="header__logo">
-          <img src="assets/logo.svg" />
-          <h1>StudyBuddy</h1>
+<header class="header header--loggedIn">
+  <div class="container">
+    <a href="{% url 'home' %}" class="header__logo">
+      <img
+        src="data:image/png;base64,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"
+      />
+      <h1>StudyBuddy</h1>
+    </a>
+    <form class="header__search" method="GET" action="{% url 'home' %}">
+      <label>
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+        >
+          <title>search</title>
+          <path
+            d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z"
+          ></path>
+        </svg>
+        <input type="text" name="q" placeholder="Search for rooms..." />
+      </label>
+    </form>
+    <nav class="header__menu">
+      {% if request.user.is_authenticated %}
+      <div class="header__user">
+        <a href="{% url 'user-profile'  request.user.id %}">
+          <div class="avatar avatar--medium active">
+            <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+          </div>
+          <p>
+            {{ request.user.username }}
+            <span>@{{ request.user.username }}</span>
+          </p>
         </a>
-        <form class="header__search"  method="GET" action="{% url 'home' %}">
-          <label>
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-              <title>search</title>
-              <path
-                d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z"
-              ></path>
-            </svg>
-            <input input type="text" name="q" placeholder="Search for rooms..." />
-          </label>
-        </form>
-        <nav class="header__menu">
-
-        {% if request.user.is_authenticated %}
-          <div class="header__user">
-            <a href="{% url 'user-profile'  request.user.id %}">
-              <div class="avatar avatar--medium active">
-                <img src="https://randomuser.me/api/portraits/men/37.jpg" />
-              </div>
-              <p>{{ request.user.username }} <span>@{{ request.user.username }}</span></p>
-            </a>
-            <button class="dropdown-button">
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                <title>chevron-down</title>
-                <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
-              </svg>
-            </button>
-          </div>
-
-        <div class="dropdown-menu">
-            <a href="settings.html" class="dropdown-link"
-              ><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                <title>tools</title>
-                <path
-                  d="M27.465 32c-1.211 0-2.35-0.471-3.207-1.328l-9.392-9.391c-2.369 0.898-4.898 0.951-7.355 0.15-3.274-1.074-5.869-3.67-6.943-6.942-0.879-2.682-0.734-5.45 0.419-8.004 0.135-0.299 0.408-0.512 0.731-0.572 0.32-0.051 0.654 0.045 0.887 0.277l5.394 5.395 3.586-3.586-5.394-5.395c-0.232-0.232-0.336-0.564-0.276-0.887s0.272-0.596 0.572-0.732c2.552-1.152 5.318-1.295 8.001-0.418 3.274 1.074 5.869 3.67 6.943 6.942 0.806 2.457 0.752 4.987-0.15 7.358l9.392 9.391c0.844 0.842 1.328 2.012 1.328 3.207-0 2.5-2.034 4.535-4.535 4.535zM15.101 19.102c0.26 0 0.516 0.102 0.707 0.293l9.864 9.863c0.479 0.479 1.116 0.742 1.793 0.742 1.398 0 2.535-1.137 2.535-2.535 0-0.668-0.27-1.322-0.742-1.793l-9.864-9.863c-0.294-0.295-0.376-0.74-0.204-1.119 0.943-2.090 1.061-4.357 0.341-6.555-0.863-2.631-3.034-4.801-5.665-5.666-1.713-0.561-3.468-0.609-5.145-0.164l4.986 4.988c0.391 0.391 0.391 1.023 0 1.414l-5 5c-0.188 0.188-0.441 0.293-0.707 0.293s-0.52-0.105-0.707-0.293l-4.987-4.988c-0.45 1.682-0.397 3.436 0.164 5.146 0.863 2.631 3.034 4.801 5.665 5.666 2.2 0.721 4.466 0.604 6.555-0.342 0.132-0.059 0.271-0.088 0.411-0.088z"
-                ></path>
-              </svg>
-              Settings</a
-            >
-            <a href="{% url 'logout' %}" class="dropdown-link"
-              ><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                <title>sign-out</title>
-                <path
-                  d="M3 0h22c0.553 0 1 0 1 0.553l-0 3.447h-2v-2h-20v28h20v-2h2l0 3.447c0 0.553-0.447 0.553-1 0.553h-22c-0.553 0-1-0.447-1-1v-30c0-0.553 0.447-1 1-1z"
-                ></path>
-                <path
-                  d="M21.879 21.293l1.414 1.414 6.707-6.707-6.707-6.707-1.414 1.414 4.293 4.293h-14.172v2h14.172l-4.293 4.293z"
-                ></path>
-              </svg>
-              Logout</a
-            >
-          </div>
-              {% else %}
-               <a href="{% url 'login' %}">
-                <img src="./assets/avatar.svg" />
-                <p>Login</p>
-                </a>
-            {% endif %}
-        </nav>
+        <button class="dropdown-button">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+          >
+            <title>chevron-down</title>
+            <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+          </svg>
+        </button>
       </div>
-    </header>
 
-
+      <div class="dropdown-menu">
+        <a href="settings.html" class="dropdown-link"
+          ><svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+          >
+            <title>tools</title>
+            <path
+              d="M27.465 32c-1.211 0-2.35-0.471-3.207-1.328l-9.392-9.391c-2.369 0.898-4.898 0.951-7.355 0.15-3.274-1.074-5.869-3.67-6.943-6.942-0.879-2.682-0.734-5.45 0.419-8.004 0.135-0.299 0.408-0.512 0.731-0.572 0.32-0.051 0.654 0.045 0.887 0.277l5.394 5.395 3.586-3.586-5.394-5.395c-0.232-0.232-0.336-0.564-0.276-0.887s0.272-0.596 0.572-0.732c2.552-1.152 5.318-1.295 8.001-0.418 3.274 1.074 5.869 3.67 6.943 6.942 0.806 2.457 0.752 4.987-0.15 7.358l9.392 9.391c0.844 0.842 1.328 2.012 1.328 3.207-0 2.5-2.034 4.535-4.535 4.535zM15.101 19.102c0.26 0 0.516 0.102 0.707 0.293l9.864 9.863c0.479 0.479 1.116 0.742 1.793 0.742 1.398 0 2.535-1.137 2.535-2.535 0-0.668-0.27-1.322-0.742-1.793l-9.864-9.863c-0.294-0.295-0.376-0.74-0.204-1.119 0.943-2.090 1.061-4.357 0.341-6.555-0.863-2.631-3.034-4.801-5.665-5.666-1.713-0.561-3.468-0.609-5.145-0.164l4.986 4.988c0.391 0.391 0.391 1.023 0 1.414l-5 5c-0.188 0.188-0.441 0.293-0.707 0.293s-0.52-0.105-0.707-0.293l-4.987-4.988c-0.45 1.682-0.397 3.436 0.164 5.146 0.863 2.631 3.034 4.801 5.665 5.666 2.2 0.721 4.466 0.604 6.555-0.342 0.132-0.059 0.271-0.088 0.411-0.088z"
+            ></path>
+          </svg>
+          Settings</a
+        >
+        <a href="{% url 'logout' %}" class="dropdown-link"
+          ><svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+          >
+            <title>sign-out</title>
+            <path
+              d="M3 0h22c0.553 0 1 0 1 0.553l-0 3.447h-2v-2h-20v28h20v-2h2l0 3.447c0 0.553-0.447 0.553-1 0.553h-22c-0.553 0-1-0.447-1-1v-30c0-0.553 0.447-1 1-1z"
+            ></path>
+            <path
+              d="M21.879 21.293l1.414 1.414 6.707-6.707-6.707-6.707-1.414 1.414 4.293 4.293h-14.172v2h14.172l-4.293 4.293z"
+            ></path>
+          </svg>
+          Logout</a
+        >
+      </div>
+      {% else %}
+      <a href="{% url 'login' %}">
+        <img src="https://ps.w.org/login-customizer/assets/icon-256x256.png?rev=2455454" />
+        <p>Login</p>
+      </a>
+      {% endif %}
+    </nav>
+  </div>
+</header>

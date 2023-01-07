@@ -1,23 +1,25 @@
-{% extends 'main.html' %}
-{% block content%}
-
-<style>
-    .profile-container{
-        display: grid;
-        grid-template-columns:1fr 3fr 1fr ;
-        }
-        </style>
-<div class="profile-container">
-
-     <div >
-         {% include 'base/topics_component.html' %}
-
-     </div>
-    <div>
-           {% include 'base/feed_component.html'%}
+{% extends 'main.html' %} {% block content%}
+<main class="layout layout--3">
+  <div class="container">
+    <!-- Topics Start -->
+    <div class="topics">
+      <div class="topics__header">
+        <h2>Browse Topics</h2>
+      </div>
+      {% include 'base/topics_component.html' %}
     </div>
-    <div>
-        {% include 'base/activities_component.html'%}
+
+    <div class="roomList">{% include 'base/feed_component.html'%}</div>
+    <!-- Activities Start -->
+    <div class="activities">
+      <div class="activities__header">
+        <h2>Recent Activities</h2>
+      </div>
+      {% include 'base/activities_component.html'%}
     </div>
-</div>
+
+    <!-- Activities End -->
+  </div>
+</main>
+
 {% endblock %}
